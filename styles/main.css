@@ -1,3 +1,5 @@
+@import "./components/vars.css";
+
 * {
   padding: 0;
   margin: 0;
@@ -14,6 +16,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   flex-direction: column;
+  padding: 0 5rem;
 }
 
 body header {
@@ -23,14 +26,21 @@ body header {
 
 body header h1 {
   font-size: 2.5rem;
+  font-family: var(--main-font);
+  font-weight: 400;
 }
 
+body .question-status {
+  font-family: var(--main-font);
+}
+
+body #end-screen .end-screen-img,
 body #start-screen .start-screen-img {
-  height: 400px;
-  width: 400px;
+  min-height: 400px;
+  min-width: 400px;
   background-color: lightgrey;
 }
-
+body section .end-screen-button,
 body section .start-screen-button {
   background-color: lightgrey;
   height: 4rem;
@@ -46,9 +56,9 @@ body #question-screen {
 }
 
 body #question-screen .question-container {
-  height: 400px;
-  width: 400px;
-  background-color: lightgrey;
+  min-height: 400px;
+  min-width: 400px;
+  background-color: var(--main-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,9 +66,31 @@ body #question-screen .question-container {
   padding: 1rem;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container button {
+  all: unset;
+  height: 100%;
+  background-color: var(--main-bg-secondary);
+  padding: 0 1.5rem;
+  font-family: var(--main-font);
+  cursor: pointer;
+}
+
+.button-container button:hover,
+.button-container button:active {
+  background-color: var(--main-bg-darker);
+  color: #fff;
+}
+
 body #question-screen .question-container p {
-  font-size: 1.2rem;
-  text-align: center;
+  font-size: 1.25rem;
+  text-align: left;
+  font-family: var(--main-font);
 }
 
 body #question-screen .question-container p + form {
@@ -73,4 +105,36 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+}
+
+form div {
+  background-color: var(--main-bg-secondary);
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+form div:hover,
+form div:active {
+  background-color: var(--main-bg-darker);
+  color: #fff;
+}
+
+form div label {
+  padding: 0.5rem 1rem;
+  font-family: var(--main-font);
+  height: 100%;
+  width: 100%;
+}
+
+form div,
+form div * {
+  cursor: pointer;
+}
+
+form div input {
+  padding: 0.5rem;
 }

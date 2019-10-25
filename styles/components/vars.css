@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+:root {
+  --main-font: "Quicksand", sans-serif;
+  --main-bg: lightgrey;
+  --main-bg-secondary: darkgrey;
+  --main-bg-darker: #626262;
+}

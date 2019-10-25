@@ -11,34 +11,35 @@
 
 <body>
   <header>
-    <h1 id="quizResult">question number 1</h1>
-    <div class="question-number"></div>
+    <h1 id="quizResult">Question <span id="questionNumber">1</span> out of <span id="questionTotal">5</span></h1>
+    <div class="question-status">correct!</div>
   </header>
   <main class="quiz-container">
     <section id="question-screen">
       <div class="question-container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <form class="" action="index.html" method="post">
+        <p id="question-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat.</p>
+        <form id="questionForm" action="" method="post">
           <div>
-            <input type="radio" name="" value="">
-            <label for="">answer 1</label>
+            <input id="questionOne" type="radio" name="question" value="">
+            <label for="questionOne">answer 1</label>
           </div>
           <div>
-            <input type="radio" name="" value="">
-            <label for="">answer 2</label>
+            <input id="questionTwo" type="radio" name="question" value="">
+            <label for="questionTwo">answer 2</label>
           </div>
           <div>
-            <input type="radio" name="" value="">
-            <label for="">answer 3</label>
+            <input id="questionThree" type="radio" name="question" value="">
+            <label for="questionThree">answer 3</label>
           </div>
           <div>
-            <input type="radio" name="" value="">
-            <label for="">answer 4</label>
+            <input id="questionFour" type="radio" name="question" value="">
+            <label for="questionFour">answer 4</label>
           </div>
         </form>
       </div>
-      <div class="start-screen-button">
-        <button>submit answer</button>
+      <div class="button-container start-screen-button">
+        <button type="submit" form="questionForm">submit answer</button>
       </div>
     </section>
   </main>
