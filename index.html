@@ -10,25 +10,85 @@
 </head>
 
 <body>
-  <header>
-    <h1>Videogame Quiz</h1>
-    <p>Do you know videogame as much as the person next to you? Well take a look at these questions we randomly found on the net to test your basic videogame knowledge!</p>
-    <div class="question-number"></div>
+  <header class="quiz-header">
+
   </header>
   <main class="quiz-container">
-    <section id="start-screen">
-      <div class="start-screen-img">
-        <img src="" alt="">
-      </div>
-      <div class="button-container start-screen-button">
-        <button>start quiz</button>
-      </div>
-    </section>
+
   </main>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./scripts/store.js"></script>
 <script src="./scripts/main.js"></script>
+
+<footer>
+  <!-- start screen elements -->
+
+  <div id="start-header">
+    <h1>Videogame Quiz</h1>
+    <p>Do you know videogame as much as the person next to you? Well take a look at these questions we randomly found on the net to test your basic videogame knowledge!</p>
+  </div>
+
+  <section id="start-screen">
+    <div class="start-screen-img">
+      <img src="" alt="">
+    </div>
+    <div class="button-container start-screen-button">
+      <button>start quiz</button>
+    </div>
+  </section>
+
+  <!-- question screen elements -->
+
+  <div class="question-header">
+    <h1 id="quizResult">Question <span id="questionNumber">1</span> out of <span id="questionTotal">5</span></h1>
+    <div class="question-status">score: <span id="totalScore">0</span></div>
+  </div>
+
+  <section id="question-screen">
+    <div class="question-container">
+      <p id="question-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.</p>
+      <form id="questionForm" action="" method="post">
+        <div>
+          <input id="questionOne" type="radio" name="question" value="">
+          <label for="questionOne">answer 1</label>
+        </div>
+        <div>
+          <input id="questionTwo" type="radio" name="question" value="">
+          <label for="questionTwo">answer 2</label>
+        </div>
+        <div>
+          <input id="questionThree" type="radio" name="question" value="">
+          <label for="questionThree">answer 3</label>
+        </div>
+        <div>
+          <input id="questionFour" type="radio" name="question" value="">
+          <label for="questionFour">answer 4</label>
+        </div>
+      </form>
+    </div>
+    <div class="button-container start-screen-button">
+      <button type="submit" form="questionForm">submit answer</button>
+    </div>
+  </section>
+
+  <!-- end screen elements -->
+
+  <div class="end-header">
+    <h1 id="quizResult">You did it!</h1>
+    <p id="quizResultSub">I guess you do know your video games after all.</p>
+  </div>
+
+  <section id="end-screen">
+    <div class="end-screen-img">
+      <img src="" alt="">
+    </div>
+    <div class="button-container end-screen-button">
+      <button>restart quiz</button>
+    </div>
+  </section>
+</footer>
 
 </html>
