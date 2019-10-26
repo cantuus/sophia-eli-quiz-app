@@ -39,12 +39,34 @@ body .question-status {
   font-family: var(--main-font);
 }
 
+body #end-screen .end-screen-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body #end-screen .end-screen-img .end-screen-stats {
+  padding: 1.5rem 1rem;
+  font-family: var(--main-font);
+}
+
 body #end-screen .end-screen-img,
 body #start-screen .start-screen-img {
   min-height: 400px;
   min-width: 400px;
   background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+body #end-screen .end-screen-img img,
+body #start-screen .start-screen-img img {
+  width: 350px;
+  padding: 2rem;
+}
+
 body section .end-screen-button,
 body section .start-screen-button {
   background-color: lightgrey;

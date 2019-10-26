@@ -18,11 +18,6 @@
   </main>
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="./scripts/store.js"></script>
-<script src="./scripts/main.js"></script>
-<script src="./scripts/renderer.js"></script>
-
 <footer id="templates">
   <!-- start screen elements -->
 
@@ -42,7 +37,7 @@
 
   <!-- question screen elements -->
 
-  <div class="question-header">
+  <div id="question-header">
     <h1 id="quizResult">Question <span id="questionNumber">1</span> out of <span id="questionTotal">5</span></h1>
     <div class="question-status">score: <span id="totalScore">0</span></div>
   </div>
@@ -53,31 +48,35 @@
         commodo consequat.</p>
       <form id="questionForm" action="" method="post">
         <div>
-          <input id="questionOne" type="radio" name="question" value="">
-          <label for="questionOne">answer 1</label>
+          <input required id="answerOne" type="radio" name="answer" value="">
+          <label for="answerOne">answer 1</label>
         </div>
         <div>
-          <input id="questionTwo" type="radio" name="question" value="">
-          <label for="questionTwo">answer 2</label>
+          <input id="answerTwo" type="radio" name="answer" value="">
+          <label for="answerTwo">answer 2</label>
         </div>
         <div>
-          <input id="questionThree" type="radio" name="question" value="">
-          <label for="questionThree">answer 3</label>
+          <input id="answerThree" type="radio" name="answer" value="">
+          <label for="answerThree">answer 3</label>
         </div>
         <div>
-          <input id="questionFour" type="radio" name="question" value="">
-          <label for="questionFour">answer 4</label>
+          <input id="answerFour" type="radio" name="answer" value="">
+          <label for="answerFour">answer 4</label>
+        </div>
+        <div>
+          <input id="answerFive" type="radio" name="answer" value="">
+          <label for="answerFive">answer 5</label>
         </div>
       </form>
     </div>
     <div class="button-container start-screen-button">
-      <button type="submit" form="questionForm">submit answer</button>
+      <button id="submit-button" type="submit" form="questionForm">submit answer</button>
     </div>
   </section>
 
   <!-- end screen elements -->
 
-  <div class="end-header">
+  <div id="end-header">
     <h1 id="quizResult">You did it!</h1>
     <p id="quizResultSub">I guess you do know your video games after all.</p>
   </div>
@@ -85,11 +84,19 @@
   <section id="end-screen">
     <div class="end-screen-img">
       <img src="" alt="">
+      <div class="end-screen-stats">
+        Questions correct: <span class="stats-questions-correct">0</span> out of <span class="stats-questions-total">5</span>
+      </div>
     </div>
     <div class="button-container end-screen-button">
-      <button>restart quiz</button>
+      <button id="restart-button">restart quiz</button>
     </div>
   </section>
 </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./scripts/store.js"></script>
+<script src="./scripts/main.js"></script>
+<script src="./scripts/renderer.js"></script>
 
 </html>
