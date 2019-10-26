@@ -5,7 +5,7 @@ $('#start-button').click(function(){
 };
 
 function updateScore() {
-    
+
 };
 
 function updateQuestionNumber() {
@@ -21,7 +21,7 @@ function displayQuestionChoices(){
 }
 
 function displayResults(){
-
+    $()
 }
 
 function handleSelection(){
