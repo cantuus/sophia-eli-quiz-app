@@ -31,7 +31,7 @@
       <img src="" alt="">
     </div>
     <div class="button-container start-screen-button">
-      <button id="start-button">start quiz</button>
+      <button tabindex="0" id="start-button">start quiz</button>
     </div>
   </section>
 
@@ -48,7 +48,7 @@
         commodo consequat.</p>
       <form id="questionForm" action="" method="post">
         <div>
-          <input required id="answerOne" type="radio" name="answer" value="">
+          <input tabindex="0" required id="answerOne" type="radio" name="answer" value="">
           <label for="answerOne">answer 1</label>
         </div>
         <div>
@@ -70,7 +70,7 @@
       </form>
     </div>
     <div class="button-container start-screen-button">
-      <button id="submit-button" type="submit" form="questionForm">submit answer</button>
+      <button tabindex="0" id="submit-button" type="submit" form="questionForm">submit answer</button>
     </div>
   </section>
 
@@ -89,14 +89,14 @@
       </div>
     </div>
     <div class="button-container end-screen-button">
-      <button id="restart-button">restart quiz</button>
+      <button tabindex="0" id="restart-button">restart quiz</button>
     </div>
   </section>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./scripts/store.js"></script>
-<script src="./scripts/main.js"></script>
 <script src="./scripts/renderer.js"></script>
+<script src="./scripts/main.js"></script>
 
 </html>

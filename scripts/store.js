@@ -59,6 +59,7 @@ const store = {
   ],
   currentQuestion: 0,
   score: 0,
+  startScreenImg: "./styles/img/mario-luigi.jpg",
   successImg: "./styles/img/happy-pikachu.png",
   failImg: "./styles/img/sad-mario.png"
 };

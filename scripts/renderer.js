@@ -2,6 +2,55 @@ const headerSlot = document.getElementsByClassName("quiz-header")[0];
 const containerSlot = document.getElementsByClassName("quiz-container")[0];
 const footer = document.getElementById("templates");
 
+const handleSelection = (question, correct, element) => {
+  const totalQuestions = store.questions.length;
+
+  if (correct) {
+    store.score++;
+    store.currentQuestion++;
+    let index = store.currentQuestion;
+
+    element.querySelector(
+      "#question-text"
+    ).textContent = `yep, that's correct.`;
+
+    setTimeout(() => {
+      if (store.currentQuestion == totalQuestions) {
+        let passing = store.score >= 4 ? true : false;
+        return renderEndScreen(passing);
+      }
+
+      return renderQuestion(
+        store.questions[index].question,
+        store.questions[index].options,
+        store.questions[index].answer,
+        index
+      );
+    }, 2000);
+  } else {
+    element.querySelector(
+      "#question-text"
+    ).textContent = `nope, the answer is actually ${question.answer}.`;
+
+    store.currentQuestion++;
+    let index = store.currentQuestion;
+
+    setTimeout(() => {
+      if (store.currentQuestion == totalQuestions) {
+        let passing = store.score >= 4 ? true : false;
+        return renderEndScreen(passing);
+      }
+
+      return renderQuestion(
+        store.questions[index].question,
+        store.questions[index].options,
+        store.questions[index].answer,
+        index
+      );
+    }, 2000);
+  }
+};
+
 const renderQuestion = (question, options, answer, index) => {
   const header = footer.querySelector("#question-header").cloneNode(true);
   const container = footer.querySelector("#question-screen").cloneNode(true);
@@ -18,6 +67,7 @@ const renderQuestion = (question, options, answer, index) => {
 
   const questionContainer = container.querySelector(".question-container");
   questionContainer.querySelector("#question-text").textContent = question;
+  container.querySelector("#submit-button").removeAttribute;
 
   const form = container.querySelector("#questionForm");
   form.querySelector("#answerOne").value = options[0];
@@ -35,7 +85,8 @@ const renderQuestion = (question, options, answer, index) => {
   form.querySelector("#answerFive").value = options[4];
   form.querySelector("[for=answerFive]").textContent = options[4];
 
-  container.querySelector("#submit-button").addEventListener("click", event => {
+  const handleFormSubmission = () => {
+    container.querySelector("#submit-button").disabled = true;
     event.preventDefault();
     let selected;
     let radios = form.querySelectorAll("[name=answer]");
@@ -53,8 +104,17 @@ const renderQuestion = (question, options, answer, index) => {
       item => item.question == question
     );
 
-    handleSelection(questionObject, selected == answer);
-  });
+    handleSelection(questionObject, selected == answer, questionContainer);
+  };
+
+  container
+    .querySelector("#submit-button")
+    .addEventListener("click", event => handleFormSubmission(event));
+
+  form.addEventListener(
+    "keydown",
+    event => (event.which == 13 ? handleFormSubmission(event) : false)
+  );
 
   // populate form fields from question options
 };
@@ -62,6 +122,10 @@ const renderQuestion = (question, options, answer, index) => {
 const renderStartScreen = () => {
   const header = footer.querySelector("#start-header").cloneNode(true);
   const container = footer.querySelector("#start-screen").cloneNode(true);
+
+  container.querySelector(".start-screen-img img").src = store.startScreenImg;
+  container.querySelector(".start-screen-img img").alt =
+    "a picture of the mario brothers";
 
   container.querySelector("#start-button").addEventListener("click", () => {
     renderQuestion(
@@ -87,6 +151,7 @@ const renderEndScreen = success => {
   header.querySelector("#quizResult").textContent = success
     ? "You did it!"
     : "You failed!";
+
   header.querySelector("#quizResultSub").textContent = success
     ? "I guess you do know your video games after all."
     : "I guess you don't know very much about video games.";
@@ -94,6 +159,10 @@ const renderEndScreen = success => {
   container.querySelector(".end-screen-img img").src = success
     ? store.successImg
     : store.failImg;
+
+  container.querySelector(".end-screen-img img").alt = success
+    ? "a picture of a smiling pikachu"
+    : "a picture of a sad mario";
 
   container
     .querySelector(".end-screen-stats")

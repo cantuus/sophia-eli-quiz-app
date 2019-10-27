@@ -33,6 +33,7 @@ body header h1 {
 
 body header p {
   font-family: var(--main-font);
+  max-width: 500px;
 }
 
 body .question-status {
@@ -53,9 +54,7 @@ body #end-screen .end-screen-img .end-screen-stats {
 
 body #end-screen .end-screen-img,
 body #start-screen .start-screen-img {
-  min-height: 400px;
-  min-width: 400px;
-  background-color: lightgrey;
+  background-color: var(--main-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +68,7 @@ body #start-screen .start-screen-img img {
 
 body section .end-screen-button,
 body section .start-screen-button {
-  background-color: lightgrey;
+  background-color: var(--main-bg);
   height: 4rem;
   margin-top: 1rem;
   width: 100%;
@@ -83,8 +82,6 @@ body #question-screen {
 }
 
 body #question-screen .question-container {
-  min-height: 400px;
-  min-width: 400px;
   background-color: var(--main-bg);
   display: flex;
   justify-content: center;
@@ -112,6 +109,10 @@ body #question-screen .question-container {
 .button-container button:active {
   background-color: var(--main-bg-darker);
   color: #fff;
+}
+
+button:focus {
+  border: 2px solid #000;
 }
 
 body #question-screen .question-container p {
@@ -168,4 +169,14 @@ form div input {
 
 footer {
   display: none;
+}
+
+@media (max-width: 961px) {
+  :root {
+    font-size: 14px;
+  }
+
+  body {
+    padding: 0 2rem;
+  }
 }
