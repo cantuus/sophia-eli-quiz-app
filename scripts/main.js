@@ -1,7 +1,8 @@
 
-let questionNumber = 5;
+let questionNumber = 1;
 let score = 0;
 initStartScreen();
+
 
 
 function initStartScreen() {
@@ -16,6 +17,12 @@ function initStartScreen() {
     // hide content, buttons
     $('#question-screen').hide();
     $('#end-screen').hide();
+    $('#question-container').show();
+    
+    questionNumber = 1;
+    updateQuestionNumText(questionNumber);
+    
+    score = 0;
 }
 
 // start quiz
@@ -26,6 +33,7 @@ $("#start-button").click(function () {
     $('#start-screen').hide();
     $('#next-button').hide();
     $('#submit-button').show();
+    $('#validation-container').hide();
 });
 
 // submit button
@@ -35,8 +43,10 @@ $('#submit-button').click(function (e) {
     $('#next-button').show();
 
     // hide questions and selections
+    $('#question-container').hide();
     // score is inputted
     // text shows up based on your selection. Text says You got it! or Wrong
+    $('#validation-container').show();
     // if statement to determine if user is on the last question
     if (questionNumber === 5) {
         $('#question-header').hide();
@@ -53,9 +63,12 @@ $('#next-button').click(function (e) {
     e.preventDefault();
     $('#submit-button').show();
     $('#next-button').hide();
+    $('#validation-container').hide();
+    $('#question-container').show();
     // next question and selections shows up
     // question number is updated
-
+    questionNumber++;
+    updateQuestionNumText(questionNumber);
 });
 
 // restart quiz button
@@ -64,6 +77,10 @@ $('#restart-button').click(function(){
 
 })
 
+// changes text for question number
+function updateQuestionNumText(questionNumber) {
+    $('#questionNumber').text(questionNumber);
+}
 // 
 
 function handleSelection(question, correct) {
@@ -74,10 +91,7 @@ function handleSelection(question, correct) {
 
 function updateScore() { }
 
-function updateQuestionNumber() {
-    let currentNumber = //When user clicks next question, +1 is added to currentNumber
-        $("#question-number").text(currentNumber);
-}
+
 
 function updateSelections() {
     //Based on the current Question number, it will go retrieve the appropriate options
@@ -86,7 +100,7 @@ function updateSelections() {
 function displayQuestion() {
     let question = STORE.questions([question]); //access and display the appropriate question
     updateScore();
-    updateQuestionNumber();
+    updateQuestionNumText();
 
     let questionHtml = $(`<div id="question-header">
 <h1 id="quizResult">Question <span id="questionNumber">1</span> out of <span id="questionTotal">5</span></h1>
