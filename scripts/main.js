@@ -1,9 +1,6 @@
-
 let questionNumber = 1;
 let score = 0;
 initStartScreen();
-
-
 
 function initStartScreen() {
     // show after restart button
@@ -34,6 +31,12 @@ $("#start-button").click(function () {
     $('#next-button').hide();
     $('#submit-button').show();
     $('#validation-container').hide();
+    $('#question-text').text(store.questions[questionNumber - 1].question);
+    $('#answerOneLabel').text(store.questions[questionNumber - 1].options[0]);
+    $('#answerTwoLabel').text(store.questions[questionNumber - 1].options[1]);
+    $('#answerThreeLabel').text(store.questions[questionNumber - 1].options[2]);
+    $('#answerFourLabel').text(store.questions[questionNumber - 1].options[3]);
+    $('#answerFiveLabel').text(store.questions[questionNumber - 1].options[4]);
 });
 
 // submit button
@@ -69,6 +72,12 @@ $('#next-button').click(function (e) {
     // question number is updated
     questionNumber++;
     updateQuestionNumText(questionNumber);
+    $('#question-text').text(store.questions[questionNumber - 1].question);
+    $('#answerOneLabel').text(store.questions[questionNumber - 1].options[0]);
+    $('#answerTwoLabel').text(store.questions[questionNumber - 1].options[1]);
+    $('#answerThreeLabel').text(store.questions[questionNumber - 1].options[2]);
+    $('#answerFourLabel').text(store.questions[questionNumber - 1].options[3]);
+    $('#answerFiveLabel').text(store.questions[questionNumber - 1].options[4]);
 });
 
 // restart quiz button

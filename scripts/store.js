@@ -57,8 +57,6 @@ const store = {
       answer: "Blue"
     }
   ],
-  currentQuestion: 0,
-  score: 0,
   successImg: "./styles/img/happy-pikachu.png",
   failImg: "./styles/img/sad-mario.png"
 };
