@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./styles/main.css">
+  <title>quiz app</title>
+</head>
+
+<body>
+  <header class="quiz-header">
+    <div id="start-header">
+      <h1>Videogame Quiz</h1>
+      <p>Do you know videogames as much as the person next to you? Well take a look at these questions we randomly found
+        on the net to test your basic videogame knowledge!</p>
+    </div>
+
+    <div id="question-header">
+      <h1>Question <span id="questionNumber">1</span> out of <span id="questionTotal">5</span></h1>
+      <div class="question-status">score: <span id="totalScore">0</span></div>
+    </div>
+
+    <div id="end-header">
+      <h1 id="quizResult"></h1>
+      <p id="quizResultSub"></p>
+    </div>
+  </header>
+  <main class="quiz-container">
+    <section id="start-screen">
+      <div class="start-screen-img">
+        <img
+          src="./styles/img/mario-luigi.jpg"
+          alt="mario and luigi high-fiving">
+      </div>
+      <div class="button-container start-screen-button">
+        <button id="start-button">start quiz</button>
+      </div>
+    </section>
+
+    <section id="question-screen">
+      <div class="question-container" id="question-container">
+        <p id="question-text">Lorem ipsum dolor sit o eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adamet, consectetur adipisicing elit, sed d minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat.</p>
+        <form id="questionForm" action="" method="post">
+          <div>
+            <input required id="answerOne" type="radio" name="answer" value="">
+            <label for="answerOne" id="answerOneLabel">answer 1</label>
+          </div>
+          <div>
+            <input id="answerTwo" type="radio" name="answer" value="">
+            <label for="answerTwo" id="answerTwoLabel">answer 2</label>
+          </div>
+          <div>
+            <input id="answerThree" type="radio" name="answer" value="">
+            <label for="answerThree" id="answerThreeLabel">answer 3</label>
+          </div>
+          <div>
+            <input id="answerFour" type="radio" name="answer" value="">
+            <label for="answerFour" id="answerFourLabel">answer 4</label>
+          </div>
+          <div>
+            <input id="answerFive" type="radio" name="answer" value="">
+            <label for="answerFive" id="answerFiveLabel">answer 5</label>
+          </div>
+        </form>
+      </div>
+      <div class="question-container" id="validation-container">
+        <p id="validation-text">Nice!</p>
+      </div>
+      <div class="button-container start-screen-button">
+        <button id="submit-button" type="submit" form="questionForm">submit answer</button>
+        <button id="next-button" type="submit" form="questionForm">next</button>
+      </div>
+    </section>
+
+    <section id="end-screen">
+      <div class="end-screen-img">
+        <img id="end-screen-img" src="" alt="">
+        <div class="end-screen-stats">
+          Questions correct: <span class="stats-questions-correct" id="stats-questions-correct">0</span> out of <span class="stats-questions-total">5</span>
+        </div>
+      </div>
+      <div class="button-container end-screen-button">
+        <button id="restart-button">restart quiz</button>
+      </div>
+    </section>
+  </main>
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./scripts/store.js"></script>
+<script src="./scripts/main.js"></script>
+
+
+</html>
