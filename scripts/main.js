@@ -69,20 +69,26 @@ $('#submit-button').click(function (e) {
   // text shows up based on your selection. Text says You got it! or Wrong
 
   // if statement to determine if user is on the last question -> transition to end-screen
-  if (questionNumber === 5) {
+  let questionsLength = store.questions.length;
+  if (questionNumber === questionsLength) {
     $('#question-header').hide();
     $('#question-screen').hide();
     $('#start-header').hide();
     $('#start-screen').hide();
     $('#next-button').hide();
+    $('#end-header').show();
     $('#end-screen').show();
     $('#stats-questions-correct').text(score);
 
     if( score <= 3 ){
       $('#end-screen-img').attr("src","sophia-eli-quiz-app/styles/img/sad-mario.png")
+      $('#quizResult').text("Boo Hoo!");
+      $('#quizResultSub').text("Maybe we'll keep the controller away from you...");
     }
     else {
       $('#end-screen-img').attr("src","sophia-eli-quiz-app/styles/img/happy-pikachu.png")
+      $('#quizResult').text("You did it!");
+      $('#quizResultSub').text("I guess you do know your video games after all");
     }
   }
 
