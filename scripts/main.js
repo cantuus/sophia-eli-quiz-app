@@ -117,8 +117,6 @@ $('#next-button').click(function (e) {
 // restart quiz button
 $('#restart-button').click(function () {
   initStartScreen();
-
-
 })
 
 // changes text for question number
@@ -129,13 +127,3 @@ function updateQuestionNumText(questionNumber) {
 function updateScoreNumText(score) {
   $('#totalScore').text(score);
 }
-
-
-// 
-
-function handleSelection(question, correct) {
-  console.log("handling selected item", question);
-  console.log(`${correct ? "answer was correct" : "answer was incorrect"}`);
-}
-
-
