@@ -23,7 +23,7 @@ function initStartScreen() {
 }
 
 // start quiz
-function renderStartQuiz (){
+function renderStartQuiz() {
   $('#question-header').show();
   $('#question-screen').show();
   $('#start-header').hide();
@@ -38,13 +38,14 @@ function renderStartQuiz (){
   $('#answerFourLabel').text(store.questions[questionNumber - 1].options[3]);
   $('#answerFiveLabel').text(store.questions[questionNumber - 1].options[4]);
 }
-
-$("#start-button").click(function () {
-  renderStartQuiz()
-});
+function attachStartButtonClick() {
+  $("#start-button").click(function () {
+    renderStartQuiz()
+  });
+}
 
 // submit button
-function submitButtonClicked (e){
+function submitButtonClicked(e) {
   e.preventDefault();
   $('#submit-button').hide();
   $('#next-button').show();
@@ -82,26 +83,27 @@ function submitButtonClicked (e){
     $('#end-screen').show();
     $('#stats-questions-correct').text(score);
 
-    if( score <= 3 ){
-      $('#end-screen-img').attr("src","./styles/img/sad-mario.png")
+    if (score <= 3) {
+      $('#end-screen-img').attr("src", "./styles/img/sad-mario.png")
       $('#quizResult').text("Boo Hoo!");
       $('#quizResultSub').text("Maybe we'll keep the controller away from you...");
     }
     else {
-      $('#end-screen-img').attr("src","./styles/img/happy-pikachu.png")
+      $('#end-screen-img').attr("src", "./styles/img/happy-pikachu.png")
       $('#quizResult').text("You did it!");
       $('#quizResultSub').text("I guess you do know your video games after all");
     }
   }
 }
-
-$('#submit-button').click(function (e) {
-  submitButtonClicked(e);
-  $('input[name=answer]:checked').prop('checked',false);
-});
+function attachSubmitButtonClick() {
+  $('#submit-button').click(function (e) {
+    submitButtonClicked(e);
+    $('input[name=answer]:checked').prop('checked', false);
+  });
+}
 
 // next button
-function nextButtonIsClicked (e){
+function nextButtonIsClicked(e) {
   e.preventDefault();
   $('#submit-button').show();
   $('#next-button').hide();
@@ -119,15 +121,18 @@ function nextButtonIsClicked (e){
   $('#answerFiveLabel').text(store.questions[questionNumber - 1].options[4]);
 }
 
-$('#next-button').click(function (e) {
-  nextButtonIsClicked(e);
-  $('input[name=answer]').attr('checked',false);
-});
-
+function attachNextButton() {
+  $('#next-button').click(function (e) {
+    nextButtonIsClicked(e);
+    $('input[name=answer]').attr('checked', false);
+  });
+}
 // restart quiz button
-$('#restart-button').click(function () {
-  initStartScreen();
-})
+function attachRestartButton() {
+  $('#restart-button').click(function () {
+    initStartScreen();
+  })
+}
 
 // changes text for question number
 function updateQuestionNumText(questionNumber) {
@@ -138,3 +143,12 @@ function updateQuestionNumText(questionNumber) {
 function updateScoreNumText(score) {
   $('#totalScore').text(score);
 }
+
+function handleQuiz() {
+  attachStartButtonClick();
+  attachSubmitButtonClick();
+  attachNextButton();
+  attachRestartButton();
+}
+
+$(handleQuiz);
