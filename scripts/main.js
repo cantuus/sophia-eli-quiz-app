@@ -20,7 +20,6 @@ function initStartScreen() {
   score = 0;
   updateQuestionNumText(questionNumber);
   updateScoreNumText(score);
-  
 }
 
 // start quiz
@@ -124,6 +123,7 @@ function updateQuestionNumText(questionNumber) {
   $('#questionNumber').text(questionNumber);
 }
 
+//changes text for score number
 function updateScoreNumText(score) {
   $('#totalScore').text(score);
 }
